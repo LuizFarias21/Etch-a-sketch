@@ -2,9 +2,8 @@ let container = document.querySelector('.container');
 const btn = document.querySelector('.btn');
 let value = 16;
 
-let size = getComputedStyle(container).width;
-size = Number(size.split('p')[0]);
-console.log(size);
+let sideLength = Number(getComputedStyle(container).width.split('p')[0]);
+
 draw();
 
 btn.addEventListener('click', () => {
@@ -19,8 +18,8 @@ function draw() {
         const div = document.createElement('div');
         div.className = 'box';
 
-        div.style.width = `${size / value}px`;
-        div.style.height = `${size / value}px`;
+        div.style.width = `${sideLength / value}px`;
+        div.style.height = `${sideLength / value}px`;
         container.append(div);
 
         div.addEventListener('mouseover', () => {

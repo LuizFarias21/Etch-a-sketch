@@ -20,13 +20,11 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-    
 }   
 
 .menu {
     width: 40vh;
     height: 80vh;
-    margin-left: 100px;
+    margin-left: 10vh;
     background-color: crimson;
-    
 }
