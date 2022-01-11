@@ -1,36 +1,31 @@
 let container = document.querySelector('.container');
 const btn = document.querySelector('.btn');
-let teste = 16;
+let value = 16;
 
-const size = container.style.width;
+let size = getComputedStyle(container).width;
+size = Number(size.split('p')[0]);
 console.log(size);
-
-for (let i = 1; i <= Math.pow(teste, 2); i++) {
-    const div = document.createElement('div');
-    div.className = 'box';
-    container.append(div);
-
-    div.addEventListener('mouseover', () => {
-        div.style.backgroundColor = 'black';
-    })
-}
+draw();
 
 btn.addEventListener('click', () => {
-    //div.style.backgroundColor = 'white';
     container.innerHTML = '';
-    teste = +prompt('Choose the number of squares cubic', 16);
+    value = +prompt('Choose the number of squares cubic', 16);
 
-    for (let i = 1; i <= Math.pow(teste, 2); i++) {
+    draw();
+})
+
+function draw() {
+    for (let i = 1; i <= Math.pow(value, 2); i++) {
         const div = document.createElement('div');
         div.className = 'box';
 
-        div.style.width = `${320/teste}px`;
-        div.style.height = `${320/teste}px`;
+        div.style.width = `${size / value}px`;
+        div.style.height = `${size / value}px`;
         container.append(div);
 
         div.addEventListener('mouseover', () => {
             div.style.backgroundColor = 'black';
         })
     }
-})
+}
 
